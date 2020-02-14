@@ -1,0 +1,19 @@
+body {
+    background-image: url(/img/alena-aenami-quiet-1px.jpg);
+}
+
+h2 {
+    color: red;
+    text-align: center;
+    border: 5px solid purple;
+    cursor: pointer;
+}
+
+p {
+    color: pink;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
