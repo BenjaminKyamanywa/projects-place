@@ -243,3 +243,85 @@ Soln => array.reverse();
 // var array2 = ["Banana", ["Apples", ["Oranges"], "Blueberries"]];
 // access "Oranges".
 Soln => array2[1][1];
+
+// Create an object and an array which we will use in our facebook exercise. 
+// 1. Create an object that has properties "username" and "password". Fill those values in with strings.
+// 2. Create an array which contains the object you have made above and name the array "database".
+// 3. Create an array called "newsfeed" which contains 3 objects with properties "username" and "timeline".
+
+// Soln
+var database = [
+    {
+        username: "kyam",
+        password: "secret"
+    }
+];
+
+var newsFeed = [
+    {
+        username: "Bruno",
+        timeline: "So syked about learning javascript"
+    },
+    {
+        username: "Gracy",
+        timeline: "I love Javascript so much."
+    }
+
+];
+
+var userNamePrompt = prompt("What's your username?");
+var passwordPrompt = prompt("what's your password?");
+
+function signIn (username, password){
+    if (username === database[0].username && database[0].password){
+        console.log(newsFeed);
+    }else {
+        alert("Sorry, wrong username and password!");
+    }
+}
+
+signIn(userNamePrompt, passwordPrompt);
+
+/* 
+---------------------------------------
+Key learnings to remember
+---------------------------------------
+*/
+
+// function declaration
+function newFunction (){
+
+}
+
+// function expression
+var newFunction = function (){
+
+};
+
+// expression
+1+3;
+var a =2; 
+return true;
+
+// calling or invoking a function
+alert();
+newFunction(param1, param2);
+
+// assign a variable
+var a = true;
+
+// function vs method
+function thisIsAFunction(){
+
+}
+
+var obj = {
+    thisIsAMethod: function (){
+
+    }
+}
+
+thisIsAFunction();
+obj.thisIsAMethod();
+
+/* Loops */
