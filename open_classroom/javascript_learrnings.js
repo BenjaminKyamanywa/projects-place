@@ -152,3 +152,62 @@ console.log(passengersBoarded + " passengers successfully on board");
 
 */
 
+// Classes with instance methods
+class BankAccount {
+    constructor(owner, balance){
+      this.owner = owner;
+      this.balance = balance;
+    }
+    showBalance(){
+      console.log("Balance: " + this.balance + " UGX");
+    }
+    deposit(amount){
+      console.log("Depositing: " + amount + " UGX");
+      this.balance += amount;
+      this.showBalance();
+    }
+    withdraw(amount){
+      if(amount > this.balance){
+        console.log("Withdraw denied!")
+      } else {
+        console.log("Withdrawing " + amount + " UGX");
+        this.balance -= amount;
+        this.showBalance();
+      }
+    }
+  }
+  
+  const newAccount = new BankAccount("John Doe", 500000);
+  
+  newAccount.showBalance();
+  newAccount.deposit(1000000);
+  newAccount.withdraw(50000);
+
+    /* 
+--------- Output of classes with instance methods ------------
+
+"Balance: 500000 UGX"
+"Depositing: 1000000 UGX"
+"Balance: 1500000 UGX"
+"Withdrawing 50000 UGX"
+"Balance: 1450000 UGX"
+
+*/
+
+// Classes with static methods
+
+class BePolite {
+    static sayHello() {
+        console.log('Hello!');
+    }
+    static sayHelloTo(name) {
+        console.log('Hello ' + name + '!');
+    }
+    static add(firstNumber, secondNumber) {
+        return firstNumber + secondNumber;
+    }
+}
+
+BePolite.sayHello(); // prints 'Hello!'
+BePolite.sayHelloTo('Will'); // prints 'Hello Will!'
+const sum = BePolite.add(2, 3); // sum = 5
