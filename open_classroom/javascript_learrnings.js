@@ -52,7 +52,7 @@ for (i = 0; i < numberOfPassengers; i++){
 }
 
 /* 
- --------- Output ------------
+ --------- Output of for loop ------------
 
 "New Passengers boarded"
 "New Passengers boarded"
@@ -75,11 +75,80 @@ for (let i in passengers){
 }
 
 /* 
---------- Output ------------
+--------- Output of for in loop ------------
 
 "Boarded John Smith"
 "Boarded Alexander Smolder"
 "Boarded William Johnson"
+
+*/
+
+// for of loop
+const newPassengers = [
+    {
+      name : "Claire Violet",
+      ticket : 9085
+    },
+    {
+      name : "Suzan Oslo",
+      ticket : 3829
+    },
+    {
+      name : "Juliet Amarova",
+      ticket : 3284
+    },
+    {
+      name : "Gracey Thiador",
+      ticket : 2849
+    },
+    {
+      name : "Clementey Hallie",
+      ticket : 4902
+    },
+    {
+      name : "Inviolet Searscon",
+      ticket : 3829
+    },
+    {
+      name : "Racheal Searson",
+      ticket : 3848
+    }
+  ]
+  
+  for (let passenger of newPassengers){
+    console.log("Boarding " + passenger.name + " with ticket number " + passenger.ticket + " aboard Future airways.");
+  }
+
+  /* 
+--------- Output of for of loop ------------
+
+"Boarding Claire Violet with ticket number 9085 aboard Future airways."
+"Boarding Suzan Oslo with ticket number 3829 aboard Future airways."
+"Boarding Juliet Amarova with ticket number 3284 aboard Future airways."
+"Boarding Gracey Thiador with ticket number 2849 aboard Future airways."
+"Boarding Clementey Hallie with ticket number 4902 aboard Future airways."
+"Boarding Inviolet Searscon with ticket number 3829 aboard Future airways."
+"Boarding Racheal Searson with ticket number 3848 aboard Future airways."
+
+*/
+
+// while loop
+let seatsLeft = 10;
+let passengersStillToBoard = 6;
+let passengersBoarded = 0;
+
+while (seatsLeft > 0 && passengersStillToBoard > 0){
+  passengersBoarded++;
+  seatsLeft--;
+  passengersStillToBoard--;
+}
+
+console.log(passengersBoarded + " passengers successfully on board");
+
+  /* 
+--------- Output of while loop ------------
+
+"6 passengers successfully on board"
 
 */
 
