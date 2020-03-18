@@ -83,3 +83,14 @@ function signIn (username, password){
 signIn(userNamePrompt, passwordPrompt);
 
 // ================================================
+
+// arrow functions
+
+function add(a, b) {
+    return a + b;
+}
+
+const add2 = (c, d) => c + d;
+
+console.log(add(3,5));
+console.log(add2(8, 6));
