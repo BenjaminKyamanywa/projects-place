@@ -33,7 +33,7 @@ do {
 
 // Improving facebook app Version_2
 
-// Soln
+// Soln =============================================
 var database = [
     {
         username: "kyam",
@@ -81,3 +81,5 @@ function signIn (username, password){
 }
 
 signIn(userNamePrompt, passwordPrompt);
+
+// ================================================
