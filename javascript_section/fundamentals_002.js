@@ -94,3 +94,15 @@ const add2 = (c, d) => c + d;
 
 console.log(add(3,5));
 console.log(add2(8, 6));
+
+// Advanced functions es6
+// understanding scope
+const first = () => {
+    const greet = "Hi";
+    const second = () => {
+        alert(greet);
+    }
+    return second;
+}
+const newFunc = first();
+newFunc();
