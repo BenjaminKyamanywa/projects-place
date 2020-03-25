@@ -20,15 +20,29 @@ class User {
     constructor(email, name) {
         this.email = email;
         this.name = name;
+        this.score = 0;
     }
     login(){
         console.log(this.email, 'just logged in');
+        return this;
     }
     logout(){
-        console.log(this.name, 'just logged out');
+        console.log(this.email, 'just logged out');
+        return this;
+    }
+    updateScore(){
+        this.score++;
+        console.log(this.email, 'score is now', this.score);
+        return this;
     }
 }
 
 // create class instances
-const userOne = new User('johndoe@gmail.com', 'John');
-const userTwo = new User('great@gmail.com', 'Greatin')
+const newUserOne = new User('johndoe@gmail.com', 'John');
+const newUserTwo = new User('great@gmail.com', 'Greatin')
+
+newUserOne.login();
+newUserTwo.logout();
+
+// method chaining => we add 'return this' to our methods in order to use method chaining 
+newUserOne.login().updateScore().updateScore().logout();
