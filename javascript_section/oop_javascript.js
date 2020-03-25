@@ -106,3 +106,26 @@ allOurUsers = [greatNewUserOne, normalNewUserTwo, superNewAdmin];
 
 console.log(greatNewUserOne);
 normalNewUserTwo.login();
+
+/* 
+
+    OOP Principles 
+    Encapsulation
+    Inheritance
+    Abstraction
+    Polymorphism
+
+*/
+
+//Encapsulation oop
+let employee = {
+    baseSalary : 10000,
+    overtime : 10,
+    rate: 20,
+    getWage(){
+        return this.baseSalary + (this.overtime * this.rate);
+    }
+}
+
+console.log(employee.getWage());
+
