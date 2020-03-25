@@ -21,6 +21,12 @@ class User {
         this.email = email;
         this.name = name;
     }
+    login(){
+        console.log(this.email, 'just logged in');
+    }
+    logout(){
+        console.log(this.name, 'just logged out');
+    }
 }
 
 // create class instances
