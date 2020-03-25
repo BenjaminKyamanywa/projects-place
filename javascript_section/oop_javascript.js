@@ -37,12 +37,29 @@ class User {
     }
 }
 
+// inheritance
+class Admin extends User {
+    deleteUser(user){
+        // false remove user and true keep user in users array
+        users = users.filter(u => {
+            return u.email !=user.email;
+        })
+    }
+}
+
+
 // create class instances
 const newUserOne = new User('johndoe@gmail.com', 'John');
 const newUserTwo = new User('great@gmail.com', 'Greatin')
+const newAdmin = new Admin('admin@gmail.com', 'administrator')
+
+// array of users
+var users = [newUserOne, newUserTwo, newAdmin];
 
 newUserOne.login();
 newUserTwo.logout();
 
 // method chaining => we add 'return this' to our methods in order to use method chaining 
 newUserOne.login().updateScore().updateScore().logout();
+
+
