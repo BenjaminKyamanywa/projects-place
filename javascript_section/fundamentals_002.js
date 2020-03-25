@@ -95,7 +95,7 @@ const add2 = (c, d) => c + d;
 console.log(add(3,5));
 console.log(add2(8, 6));
 
-// Advanced functions es6
+// Advanced functions es6 in javascript
 // understanding scope
 const first = () => {
     const greet = "Hi";
@@ -106,3 +106,21 @@ const first = () => {
 }
 const newFunc = first();
 newFunc();
+
+// closures 
+// a function ran. the function executed. It's never going to be executed again. But it's going to remember that there are references to those variables so the child scope always has access to the parent scope.
+
+// currying 
+// taking a function that accepts multiple arguments to accepting one at a time.
+
+const multiply = (a, b) => a + b;
+const curriedMultiply = (a) => (b) => a + b;
+curriedMultiply(3)(4);
+
+// compose 
+// act of putting two functions together to form a third function where the output of one function is the input of the other.
+
+const compose = (f, g) => (a) => f(g(a));
+
+const sum = (num) => num + 1;
+compose(sum, sum)(5);
