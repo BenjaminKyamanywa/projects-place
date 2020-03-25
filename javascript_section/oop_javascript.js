@@ -110,14 +110,14 @@ normalNewUserTwo.login();
 /* 
 
     OOP Principles 
-    Encapsulation
-    Inheritance
-    Abstraction
-    Polymorphism
+    Encapsulation => reduce complexity + increase reusability.
+    Inheritance => eliminate redundant code.
+    Abstraction => reduce complexity + isolate impact of changes.
+    Polymorphism => refactor ugly switch / case statements.
 
 */
 
-//Encapsulation oop
+//Encapsulation oop example
 let employee = {
     baseSalary : 10000,
     overtime : 10,
@@ -128,4 +128,6 @@ let employee = {
 }
 
 console.log(employee.getWage());
+
+
 
