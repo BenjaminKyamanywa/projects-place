@@ -123,11 +123,39 @@ let employee = {
     overtime : 10,
     rate: 20,
     getWage(){
-        return this.baseSalary + (this.overtime * this.rate);
+        return this.baseSalary + (this.overtime * this.rate, ' Was my base salary for last month');
     }
 }
 
 console.log(employee.getWage());
 
+// ====================================
+// {} => object literal syntax
 
+const circle = {
+    radius : 1,
+    location: {
+        x: 1,
+        y: 1
+    },
+    draw(){
+        console.log('draw');
+    }
+};
+
+// using a factory or constructor function
+
+// factory function
+function createCircle(radius){
+    return {
+        radius,
+        draw(){
+            console.log('draw');
+        }
+    };
+}
+
+const circle = createCircle(1);
+
+// Constructor function
 
