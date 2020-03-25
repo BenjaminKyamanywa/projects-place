@@ -1,4 +1,4 @@
-// obaject 
+// object example 
 let userOne = {
     email: 'johndoe@gmail.com',
     name: 'John',
@@ -14,3 +14,15 @@ console.log(userOne);
 
 // updating a property
 userOne.name = 'Grace'
+
+// creating multiple instances of an object without having to re-create an obaject using classes
+class User {
+    constructor(email, name) {
+        this.email = email;
+        this.name = name;
+    }
+}
+
+// create class instances
+const userOne = new User('johndoe@gmail.com', 'John');
+const userTwo = new User('great@gmail.com', 'Greatin')
