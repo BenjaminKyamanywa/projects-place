@@ -132,7 +132,7 @@ console.log(employee.getWage());
 // ====================================
 // {} => object literal syntax
 
-const circle = {
+const circleOne = {
     radius : 1,
     location: {
         x: 1,
@@ -155,7 +155,15 @@ function createCircle(radius){
     };
 }
 
-const circle = createCircle(1);
+const circleTwo = createCircle(1);
+console.log(circleTwo);
 
 // Constructor function
-
+function Circle(radius){
+    this.radius = radius;
+    this.draw = function(){
+        console.log('draw');
+    }
+}
+ const another = new Circle(1);
+ console.log(another);
