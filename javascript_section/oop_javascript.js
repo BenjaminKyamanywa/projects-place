@@ -62,4 +62,18 @@ newUserTwo.logout();
 // method chaining => we add 'return this' to our methods in order to use method chaining 
 newUserOne.login().updateScore().updateScore().logout();
 
+// using prototypes to create classes
+function NewestTypeOfUser(email, name){
+    this.email = email;
+    this.name = name;
+    this.online = false;
+    this.login = function(){
+        console.log(this.email, 'has logged in');
+    }
+}
 
+const greatNewUserOne = new NewestTypeOfUser('greeting@gmail.com', 'Swezi');
+const normalNewUserTwo = new NewestTypeOfUser('gruesome@gmail.com', 'Kraster');
+
+console.log(greatNewUserOne);
+normalNewUserTwo.login();
