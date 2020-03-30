@@ -62,3 +62,20 @@ const cheerful = () => {
 }
 
 cheerful();
+
+/* 
+    Helper methods
+    map => allows us create arrays by calling a specific function on each element within an initial array.
+    filter
+
+*/
+
+// map
+let values = [10, 40, 80, 30];
+
+let double = (n) => {
+    return n * 2;
+}
+
+let doubled = values.map(double);
+console.log(doubled);
