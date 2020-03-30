@@ -37,4 +37,16 @@ let f = [1,2,3,4,5,6];
 let [four, five] = f;
 console.log(four, five);
 
-let animals = ['Simba', 'Mufasa', ]
+let animals = ['Simba', 'Mufasa', 'Nala'];
+let [lion, lionFather] = animals;
+console.log(lion, lionFather);
+
+/* 
+
+    Destructuring with objects
+
+*/
+
+let king = {name: 'Mufasa', kids: 1};
+let {name, kids} = king;
+console.log(name, kids);
