@@ -137,3 +137,18 @@ son.hello();
 let newKing = new Animal('Mufasa', 3.5);
 console.log(newKing);
 newKing.hello();
+
+// static methods in classes => can be used without declaring an instance of a class
+class Calculator {
+    static multiply(a, b){
+        return a * b;
+    }
+    static add(c, d){
+        return c + d;
+    }
+}
+
+let firstMultiplication = Calculator.multiply(4, 6);
+let secondAddition = Calculator.add(4, 2);
+console.log(firstMultiplication);
+console.log(secondAddition);
