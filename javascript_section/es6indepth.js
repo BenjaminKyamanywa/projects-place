@@ -79,3 +79,10 @@ let double = (n) => {
 
 let doubled = values.map(double);
 console.log(doubled);
+
+/* 
+    another way of writing our helper map method 
+    let doubled = values.map((n) => n*2);
+    console.log(doubled);
+
+*/
