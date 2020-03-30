@@ -152,3 +152,24 @@ let firstMultiplication = Calculator.multiply(4, 6);
 let secondAddition = Calculator.add(4, 2);
 console.log(firstMultiplication);
 console.log(secondAddition);
+
+// prototypes
+function Shinigami(name, rank, zanpakuto){
+    this.name = name;
+    this.rank = rank;
+    this.zanpakuto = zanpakuto;
+    this.greeting = () => `I'm ${this.name} and ${this.zanpakuto} is my sword.`
+}
+
+// adding a property and method to a prototype
+Shinigami.prototype.squad;
+
+Shinigami.prototype.inform = function(){
+    return `I ${this.name} named my sword ${this.zanpakuto} and we belong to ${this.squad}.`
+}
+
+let hitsugaya = new Shinigami('Hitsugaya Toushiro', 'Captain', 'Hyorinmaru');
+hitsugaya.squad = 'Greats';
+console.log(hitsugaya.greeting());
+console.log(hitsugaya.inform());
+
