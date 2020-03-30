@@ -101,3 +101,21 @@ console.log(highscores);
     console.log(highscores);
 
 */
+
+/* 
+    modules refer to re-usable pieces of code within our applications
+
+*/
+
+// Classes 
+
+class Animal {
+    constructor(name, height) {
+        this.name = name;
+        this.height = height;
+    }
+
+}
+
+let newKing = new Animal('Mufasa', 3.5);
+console.log(newKing);
