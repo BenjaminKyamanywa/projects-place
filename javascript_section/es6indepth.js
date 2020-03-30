@@ -86,3 +86,18 @@ console.log(doubled);
     console.log(doubled);
 
 */
+
+// filter method examples 
+let points = [3,5,6,7,8,1,8];
+let highscores = points.filter((n) => {
+    return n > 3;
+});
+
+console.log(highscores);
+
+/* 
+    another way of writing our helper filter method 
+    let highscores = points.filter((n) => n>3);
+    console.log(highscores);
+
+*/
