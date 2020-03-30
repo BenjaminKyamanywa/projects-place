@@ -119,6 +119,21 @@ class Animal {
     }
 }
 
+// inheritance of Animal class
+class Lion extends Animal {
+    constructor(name, height, color){
+        super(name, height);
+        this.color = color;
+    }
+    hello(){
+        console.log(`Hi! I'm ${this.name} from Pride Rock!`);
+    }
+}
+
+let son = new Lion('Simba', 4, 'Golden');
+console.log(son);
+son.hello();
+
 let newKing = new Animal('Mufasa', 3.5);
 console.log(newKing);
 newKing.hello();
