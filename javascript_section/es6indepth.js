@@ -173,3 +173,17 @@ hitsugaya.squad = 'Greats';
 console.log(hitsugaya.greeting());
 console.log(hitsugaya.inform());
 
+/* 
+    Datastructures => Programmatic storage of data for efficient usage.
+
+*/
+
+// Set datastructure
+let j = new Set();
+j.add(4);
+j.add('New Age');
+j.add({ x: 4, y: 10});
+console.log(j);
+console.log(j.size);
+
+// 
