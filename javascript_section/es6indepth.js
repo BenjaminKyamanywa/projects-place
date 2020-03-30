@@ -114,8 +114,11 @@ class Animal {
         this.name = name;
         this.height = height;
     }
-
+    hello(){
+        console.log(`Hi! I'm ${this.name} from the Animal Kingdom`);
+    }
 }
 
 let newKing = new Animal('Mufasa', 3.5);
 console.log(newKing);
+newKing.hello();
