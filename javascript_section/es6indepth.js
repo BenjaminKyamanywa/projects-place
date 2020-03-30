@@ -50,3 +50,15 @@ console.log(lion, lionFather);
 let king = {name: 'Mufasa', kids: 1};
 let {name, kids} = king;
 console.log(name, kids);
+
+// testing setTimeout function using arrow functions
+/* setTimeout(() => {
+    console.log('Becoming an excceptional Javascript Developer')
+}, 3000); */
+
+// declarig a non anonymous arrow function
+const cheerful = () => {
+    console.log('I am always cheerful');
+}
+
+cheerful();
