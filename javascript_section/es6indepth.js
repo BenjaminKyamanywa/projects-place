@@ -197,3 +197,21 @@ p.then(response => console.log(response))
 
 
 // HTTP defines a foundation for how data communicates over the internet.
+
+/* 
+    Defining how to use fetch 
+
+    const root = 'http://jsonplaceholder.typicode.com/posts/1';
+
+    fetch(root, {method: 'GET'})
+        .then(response => json())
+        .then(json => console.log(json));
+
+    ***Consuming data from a more dynamic API
+
+    const root1 = 'https://www.googapis.com/books/v1/volumes?q=isbn:0747532699'
+
+    fetch(root1, {method: 'GET'})
+        .then(response => json())
+        .then(json => console.log(json));
+*/
