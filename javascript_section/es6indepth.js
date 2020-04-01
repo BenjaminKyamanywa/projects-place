@@ -186,4 +186,11 @@ j.add({ x: 4, y: 10});
 console.log(j);
 console.log(j.size);
 
-// 
+// Promises 
+let p = new Promise((resolve, reject) => {
+    // resolve('Resolved promise data')
+    reject('Failed to resolve promise data')
+})
+
+p.then(response => console.log(response))
+ .catch(error => console.log(error));
