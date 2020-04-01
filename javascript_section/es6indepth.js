@@ -194,3 +194,6 @@ let p = new Promise((resolve, reject) => {
 
 p.then(response => console.log(response))
  .catch(error => console.log(error));
+
+
+// HTTP defines a foundation for how data communicates over the internet.
