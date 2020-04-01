@@ -218,12 +218,26 @@ p.then(response => console.log(response))
 
 // async function
 async function async_one(){
-    return 'This is an async successful response';
+    return 'This is the first successful async response function';
 }
 
 async function async_two(){
     throw new Error ('This is an error from async function');
 }
 
-async_one().then(response => console.log(response));
+// async_one().then(response => console.log(response));
 // async_two().catch(error => console.log(error)); => works and fills the console with the async error
+
+// async with await
+async function async_three(){
+    return 'This is the second successful async response function';
+}
+
+async function async_four(){
+    const one = await async_one();
+    console.log(one);
+    const two = await async_three();
+    console.log(two);
+}
+
+async_four();
