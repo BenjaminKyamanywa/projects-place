@@ -221,4 +221,9 @@ async function async_one(){
     return 'This is an async successful response';
 }
 
+async function async_two(){
+    throw new Error ('This is an error from async function');
+}
+
 async_one().then(response => console.log(response));
+// async_two().catch(error => console.log(error)); => works and fills the console with the async error
