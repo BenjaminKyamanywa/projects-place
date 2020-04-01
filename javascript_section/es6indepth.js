@@ -188,8 +188,8 @@ console.log(j.size);
 
 // Promises 
 let p = new Promise((resolve, reject) => {
-    // resolve('Resolved promise data')
-    reject('Failed to resolve promise data')
+    resolve('Resolved promise data')
+    // reject('Failed to resolve promise data')
 })
 
 p.then(response => console.log(response))
@@ -215,3 +215,10 @@ p.then(response => console.log(response))
         .then(response => json())
         .then(json => console.log(json));
 */
+
+// async function
+async function async_one(){
+    return 'This is an async successful response';
+}
+
+async_one().then(response => console.log(response));
