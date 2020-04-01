@@ -1,16 +1,12 @@
 /* 
-
-spread operator : {}
-rest parameters: function(...)
-destructuring assignment: simplifies extracting data on arrays and objects into distinct variables 
-
+    spread operator : {}
+    rest parameters: function(...)
+    destructuring assignment: simplifies extracting data on arrays and objects into distinct variables 
 */
 
 
 /* 
-
     Using the spread operator 
-
 */
 let a = [20, 40, 50];
 let b = [10, ...a, 70];
@@ -240,4 +236,18 @@ async function async_four(){
     console.log(two);
 }
 
+// function call
 async_four();
+
+// using promise all with await
+
+
+async function async_five(){
+    const [res_one, res_two] = await Promise.all(
+        [async_one(), async_three()]
+    )
+    console.log(res_one, res_two);
+}
+
+// function call
+async_five();
