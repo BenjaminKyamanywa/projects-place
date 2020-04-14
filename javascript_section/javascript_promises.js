@@ -12,3 +12,13 @@ const promise = new Promise((resolve, reject) => {
 promise
     .then(result => console.log(result));
 
+//  using async
+// example
+async function fetchUsers(){ 
+    const res = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await res.json();
+    console.log(data);
+}
+
+fetchUsers();
+
