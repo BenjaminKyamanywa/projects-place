@@ -3,6 +3,7 @@ import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import './App.css';
 import Navigation from './components/navigation/Navigation';
+import FaceRecognition from './components/facerecognition/FaceRecognition';
 import Rank from './components/rank/Rank';
 import ImageLinkForm from './components/imagelinkform/ImageLinkForm';
 import Logo from './components/logo/Logo';
@@ -36,6 +37,7 @@ const App = (onInputChange, onButtonSubmit) => {
     app.models.predict("a403429f2ddf4b49b307e318f00e528b", "https://samples.clarifai.com/face-det.jpg").then(
     function(response) {
       // do something with response
+      console.log(response)
     },
     function(err) {
       // there was an error
@@ -51,11 +53,7 @@ const App = (onInputChange, onButtonSubmit) => {
       <Logo />
       <Rank />
       <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
-
-      {/*  
-      
-      <faceRecognition /> */}
-      
+      <FaceRecognition />
     </div>
   );
 }
