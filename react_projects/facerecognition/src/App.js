@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Particles from 'react-particles-js';
 import './App.css';
 import Navigation from './components/navigation/Navigation';
 import Rank from './components/rank/Rank';
 import ImageLinkForm from './components/imagelinkform/ImageLinkForm';
-
 import Logo from './components/logo/Logo';
 
 const particlesOptions = {
@@ -19,7 +18,18 @@ const particlesOptions = {
   }
 }
 
-const App = () => {
+const App = (onInputChange, onButtonSubmit) => {
+  // Declaring state 
+  const [input, setInput] = useState('');
+
+  onInputChange = (event) => {
+    console.log(event.target.value)
+  }
+
+  onButtonSubmit = () => {
+    console.log('Click');
+  }
+
   return (
     <div className="App">
       <Particles className="particles"
@@ -27,7 +37,7 @@ const App = () => {
       <Navigation />
       <Logo />
       <Rank />
-      <ImageLinkForm />
+      <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
 
       {/*  
       
