@@ -66,7 +66,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
       <Logo />
       <Rank />
       <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
-      <FaceRecognition imageUrl = { imageurl }/>
+      <FaceRecognition box={ box } imageUrl = { imageurl }/>
     </div>
   );
 }
