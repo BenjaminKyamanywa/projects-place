@@ -35,7 +35,7 @@ const App = (onInputChange, onButtonSubmit) => {
 
   onButtonSubmit = () => {
     setImageUrl (input); 
-    app.models.predict(Clarifai.COLOR_MODEL, "https://samples.clarifai.com/face-det.jpg").then(
+    app.models.predict(Clarifai.COLOR_MODEL, input).then(
     function(response) {
       // do something with response
       console.log(response)
