@@ -3,6 +3,7 @@ import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import './App.css';
 import Navigation from './components/navigation/Navigation';
+import Signin from './components/signin/Signin';
 import FaceRecognition from './components/facerecognition/FaceRecognition';
 import Rank from './components/rank/Rank';
 import ImageLinkForm from './components/imagelinkform/ImageLinkForm';
@@ -29,6 +30,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
   const [input, setInput] = useState('');
   const [imageurl, setImageUrl] = useState('');
   const [box, setBox] = useState({});
+  const [route] = useState('signIn');
 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -63,6 +65,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
       <Particles className="particles"
         params={particlesOptions} />
       <Navigation />
+      <Signin />
       <Logo />
       <Rank />
       <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
