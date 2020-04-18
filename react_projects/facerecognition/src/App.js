@@ -26,15 +26,15 @@ const particlesOptions = {
 
 const App = (onInputChange, onButtonSubmit) => {
   // Declaring state 
-  const [input, setInput] = useState('');
+  const [input, setInput, imageUrl] = useState('');
 
   onInputChange = (event) => {
     console.log(event.target.value)
   }
 
   onButtonSubmit = () => {
-    console.log('Click');
-    app.models.predict("a403429f2ddf4b49b307e318f00e528b", "https://samples.clarifai.com/face-det.jpg").then(
+    imageUrl ({ imageUrl: input}); 
+    app.models.predict(Clarifai.COLOR_MODEL, "https://samples.clarifai.com/face-det.jpg").then(
     function(response) {
       // do something with response
       console.log(response)
@@ -53,7 +53,7 @@ const App = (onInputChange, onButtonSubmit) => {
       <Logo />
       <Rank />
       <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
-      <FaceRecognition />
+      <FaceRecognition imageUrl= { imageUrl }/>
     </div>
   );
 }
