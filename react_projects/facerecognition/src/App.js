@@ -24,18 +24,27 @@ const particlesOptions = {
   }
 }
 
-const App = (onInputChange, onButtonSubmit, calculateFaceLocation) => {
+const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBox) => {
   // Declaring state variables
   const [input, setInput] = useState('');
   const [imageurl, setImageUrl] = useState('');
-  const [box] = useState();
+  const [box, setBox] = useState({});
 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('input-image');
     const width = Number(image.width);
     const height = Number(image.height);
-    console.log(width, height);
+    return {
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - (clarifaiFace.right_col * width),
+      bottomRow: height - (clarifaiFace.bottom_row * height)
+    }
+  }
+  
+  displayFaceBox = (box) => {
+    setBox(box)
   }
 
   onInputChange = (event) => {
@@ -45,7 +54,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation) => {
   onButtonSubmit = () => {
     setImageUrl (input); 
     app.models.predict(Clarifai.FACE_DETECT_MODEL, input)
-    .then(response => calculateFaceLocation(response))
+    .then(response => displayFaceBox(calculateFaceLocation(response)))
     .catch(err => console.log(err));
   }
 
