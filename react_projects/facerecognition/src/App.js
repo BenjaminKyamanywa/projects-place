@@ -65,11 +65,15 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
       <Particles className="particles"
         params={particlesOptions} />
       <Navigation />
-      <Signin />
-      <Logo />
-      <Rank />
-      <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
-      <FaceRecognition box={ box } imageUrl = { imageurl }/>
+      { route === 'signIn'
+        ? <Signin />
+      : <div>
+        <Logo />
+        <Rank />
+        <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
+        <FaceRecognition box={ box } imageUrl = { imageurl }/>
+        </div>
+      }
     </div>
   );
 }
