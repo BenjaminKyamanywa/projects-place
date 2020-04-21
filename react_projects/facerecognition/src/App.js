@@ -60,15 +60,15 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
     .catch(err => console.log(err));
   }
 
-  onRouteChange = () => {
-    setRoute('Home');
+  onRouteChange = (route) => {
+    setRoute(route);
   }
 
   return (
     <div className="App">
       <Particles className="particles"
-        params={particlesOptions} />
-      <Navigation />
+        params={ particlesOptions } />
+      <Navigation onRouteChange= { onRouteChange }/>
       { route === 'signIn'
         ? <Signin onRouteChange={ onRouteChange }/>
         : <div>
