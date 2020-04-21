@@ -4,6 +4,7 @@ import Clarifai from 'clarifai';
 import './App.css';
 import Navigation from './components/navigation/Navigation';
 import Signin from './components/signin/Signin';
+import Register from './components/register/Register';
 import FaceRecognition from './components/facerecognition/FaceRecognition';
 import Rank from './components/rank/Rank';
 import ImageLinkForm from './components/imagelinkform/ImageLinkForm';
@@ -69,14 +70,18 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
       <Particles className="particles"
         params={ particlesOptions } />
       <Navigation onRouteChange= { onRouteChange }/>
-      { route === 'signIn'
-        ? <Signin onRouteChange={ onRouteChange }/>
-        : <div>
+      { route === 'home'
+        ? <div>
             <Logo />
             <Rank />
             <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
             <FaceRecognition box={ box } imageUrl = { imageurl }/>
           </div>
+          : (
+              route === 'signIn'
+              ? <Signin onRouteChange={ onRouteChange }/>
+              : <Register onRouteChange={ onRouteChange }/>
+            )
       }
     </div>
   );
