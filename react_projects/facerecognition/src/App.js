@@ -25,12 +25,12 @@ const particlesOptions = {
   }
 }
 
-const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBox) => {
+const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBox, onRouteChange) => {
   // Declaring state variables
   const [input, setInput] = useState('');
   const [imageurl, setImageUrl] = useState('');
   const [box, setBox] = useState({});
-  const [route] = useState('signIn');
+  const [route, setRoute] = useState('signIn');
 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -60,19 +60,23 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
     .catch(err => console.log(err));
   }
 
+  onRouteChange = () => {
+    setRoute('Home');
+  }
+
   return (
     <div className="App">
       <Particles className="particles"
         params={particlesOptions} />
       <Navigation />
       { route === 'signIn'
-        ? <Signin />
-      : <div>
-        <Logo />
-        <Rank />
-        <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
-        <FaceRecognition box={ box } imageUrl = { imageurl }/>
-        </div>
+        ? <Signin onRouteChange={ onRouteChange }/>
+        : <div>
+            <Logo />
+            <Rank />
+            <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
+            <FaceRecognition box={ box } imageUrl = { imageurl }/>
+          </div>
       }
     </div>
   );
