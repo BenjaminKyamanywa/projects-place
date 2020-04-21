@@ -13,7 +13,7 @@ const Register = ({ onRouteChange }) => {
                   className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="text"
                   name="email-address"
-                  id="email-address"
+                  id="name"
                 />
               </div>
               <div className="mt3">
