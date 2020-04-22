@@ -68,16 +68,22 @@ app.get('/profile/:id', (req, res) => {
     }
 })
 
+app.post('/image', (req, res) => {
+    const { id } = req.body;
+    let found = false;
+    database.users.forEach( user => {
+        if (user.id === id){
+            found = true;
+            user.entries++
+           return res.json(user.entries);
+        } 
+    })
+    if(!found){
+        res.status(400).json('not found');
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Face Recognition app is listening on port ${PORT}`)
 });
 
-/* 
-     Server Plan
-     - res = this is working home route
-     - /signin -> POST = success/fail
-     - /register -> POST = user
-     - /profile/:userid -> GET = user
-     - /image -> PUT -> user
-
-*/
