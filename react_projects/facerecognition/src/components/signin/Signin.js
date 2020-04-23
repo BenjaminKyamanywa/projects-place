@@ -14,7 +14,14 @@ const Signin = ({ onRouteChange }, onEmailChange, onPasswordChange, onSubmitSign
     }
 
     onSubmitSignIn = () => {
-      console.log(signInEmail, signInPassword)
+      fetch('http://localhost:4000/signin', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          email: signInEmail,
+          password: signInPassword
+        })
+      })
       onRouteChange('home')
     }
 
@@ -47,10 +54,10 @@ const Signin = ({ onRouteChange }, onEmailChange, onPasswordChange, onSubmitSign
             </fieldset>
             <div className="">
               <input
-                onClick={onSubmitSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"
+                onClick={onSubmitSignIn}
               />
             </div>
             <div className="lh-copy mt3">
