@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Signin = ({ onRouteChange }, onEmailChange) => {
+const Signin = ({ onRouteChange }, onEmailChange, onPasswordChange, onSubmitSignIn) => {
     // Declaring state variables
     const [signInEmail, setSignInEmail] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
@@ -11,6 +11,11 @@ const Signin = ({ onRouteChange }, onEmailChange) => {
 
     onPasswordChange = (event) => {
       setSignInPassword(event.target.value)
+    }
+
+    onSubmitSignIn = () => {
+      console.log(signInEmail, signInPassword)
+      onRouteChange('home')
     }
 
     return (
@@ -26,6 +31,7 @@ const Signin = ({ onRouteChange }, onEmailChange) => {
                   type="email"
                   name="email-address"
                   id="email-address"
+                  onChange={onEmailChange}
                 />
               </div>
               <div className="mv3">
@@ -35,12 +41,13 @@ const Signin = ({ onRouteChange }, onEmailChange) => {
                   type="password"
                   name="password"
                   id="password"
+                  onChange={onPasswordChange}
                 />
               </div>
             </fieldset>
             <div className="">
               <input
-                onClick={ () => onRouteChange('home')}
+                onClick={onSubmitSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"
