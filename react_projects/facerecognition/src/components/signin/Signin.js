@@ -22,7 +22,12 @@ const Signin = ({ onRouteChange }, onEmailChange, onPasswordChange, onSubmitSign
           password: signInPassword
         })
       })
-      onRouteChange('home')
+        .then(response => response.json())
+        .then(data => {
+          if(data === 'success'){
+            onRouteChange('home')
+          }
+        })
     }
 
     return (
