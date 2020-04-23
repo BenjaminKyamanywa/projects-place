@@ -24,7 +24,7 @@ const Signin = ({ onRouteChange }, onEmailChange, onPasswordChange, onSubmitSign
       })
         .then(response => response.json())
         .then(data => {
-          if(data === 'success'){
+          if(data === 'successfull signin!'){
             onRouteChange('home')
           }
         })
