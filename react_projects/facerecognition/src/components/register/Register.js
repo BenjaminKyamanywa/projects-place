@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Register = ({ onRouteChange }, onNameChange, onEmailChange, onPasswordChange, onSubmitRegister) => {
+const Register = ({ onRouteChange, loadUser }, onNameChange, onEmailChange, onPasswordChange, onSubmitRegister) => {
     // Declaring state variables
     const [registerName, setRegisterName] = useState('');
     const [registerEmail, setRegisterEmail] = useState('');
@@ -31,6 +31,7 @@ const Register = ({ onRouteChange }, onNameChange, onEmailChange, onPasswordChan
         .then(response => response.json())
         .then(user => {
           if(user){
+            loadUser(user)
             onRouteChange('home')
           }
         })
@@ -75,10 +76,10 @@ const Register = ({ onRouteChange }, onNameChange, onEmailChange, onPasswordChan
             </fieldset>
             <div className="">
               <input
-                onClick={ onSubmitRegister }
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Register"
+                onClick={ onSubmitRegister }
               />
             </div>
           </div>

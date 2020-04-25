@@ -26,14 +26,35 @@ const particlesOptions = {
   }
 }
 
-const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBox, onRouteChange) => {
+const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBox, onRouteChange, loadUser) => {
   // Declaring state variables
   const [input, setInput] = useState('');
   const [imageurl, setImageUrl] = useState('');
   const [box, setBox] = useState({});
   const [route, setRoute] = useState('signIn');
   const [isSignedIn, setisSignedIn] = useState(false);
+  const [user, setUser] = useState({
+            user: {
+                    id: '',
+                    name: '',
+                    email: '',
+                    entries: 0,
+                    joined: ''
+            }
+  });
 
+  loadUser = (data) => {
+    setUser({ 
+      user: {
+            id: data.id,
+            name: data.name,
+            email: data.email,
+            entries: data.entries,
+            joined: data.joined
+            }
+    })
+  }
+ 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('input-image');
@@ -90,7 +111,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
           : (
               route === 'signIn'
               ? <Signin onRouteChange={ onRouteChange }/>
-              : <Register onRouteChange={ onRouteChange }/>
+              : <Register onRouteChange={ onRouteChange } loadUser={ loadUser }/>
             )
       }
     </div>
