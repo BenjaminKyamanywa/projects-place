@@ -81,7 +81,13 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
     app.models.predict(Clarifai.FACE_DETECT_MODEL, input)
     .then(response => {
       if(response){
-        fetch('http://localhost:4000/image', )
+        fetch('http://localhost:4000/image', {
+          method: 'put',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            id: user.id
+          })
+        })
       }
       displayFaceBox(calculateFaceLocation(response))
     })
