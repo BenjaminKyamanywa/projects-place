@@ -88,6 +88,10 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
             id: user.id
           })
         })
+          .then(response => response.json())
+          .then(count => {
+            setUser(Object.assign(user, {entries: count}))
+          })
       }
       displayFaceBox(calculateFaceLocation(response))
     })
