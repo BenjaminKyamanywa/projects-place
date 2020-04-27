@@ -15,7 +15,7 @@ const Signin = ({ onRouteChange, loadUser }, onEmailChange, onPasswordChange, on
 
     onSubmitSignIn = () => {
       fetch('http://localhost:4000/signin', {
-        method: 'post',
+        method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           email: signInEmail,

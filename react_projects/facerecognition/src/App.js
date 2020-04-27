@@ -82,10 +82,10 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
     .then(response => {
       if(response){
         fetch('http://localhost:4000/image', {
-          method: 'put',
+          method: 'PUT',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
-            id: user.id
+            id: user.user.id
           })
         })
           .then(response => response.json())
