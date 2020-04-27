@@ -79,15 +79,16 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
   onButtonSubmit = () => {
     setImageUrl (input); 
     app.models.predict(Clarifai.FACE_DETECT_MODEL, input)
-    .then(response => displayFaceBox(calculateFaceLocation(response)))
+    .then(response => {
+      if(response){
+        fetch('http://localhost:4000/image', )
+      }
+      displayFaceBox(calculateFaceLocation(response))
+    })
     .catch(err => console.log(err));
   }
 
   onRouteChange = (route) => {
-    /* route === 'signOut' ? setisSignedIn(false)
-    : route === 'home' ? setisSignedIn(true)
-    : */
-    // route === 'signOut' ? setisSignedIn(false)
     if (route === 'signOut') {
       setisSignedIn(false)
     } else if (route === 'home') {
