@@ -115,7 +115,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
       { route === 'home'
         ? <div>
             <Logo />
-            <Rank name={ user.name } entries={ user.entries }/>
+            <Rank name={ user.user.name} entries={ user.user.entries }/>
             <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
             <FaceRecognition box={ box } imageUrl = { imageurl }/>
           </div>
