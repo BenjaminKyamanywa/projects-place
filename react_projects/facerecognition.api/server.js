@@ -2,9 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 4000;
-const knex = require('knex')
-
-knex({
+const knex = require('knex')({
     client: 'pg',
     connection: {
       host : '127.0.0.1',
