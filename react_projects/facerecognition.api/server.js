@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
-const PORT = 4000;
+const PORT =  process.env.PORT || 4000;
 const db = require('knex')({
     client: 'pg',
     connection: {
