@@ -12,6 +12,7 @@ const knex = require('knex')({
     }
   });
 
+  
 const app = express();
 
 app.use(cors())
@@ -54,15 +55,18 @@ app.post('/signin', (req, res) => {
 
 app.post('/register', (req, res) => {
     const {email, name, password } = req.body;
-    database.users.push({
-        id: '125',
+    knex('users')
+    .returning('*')
+    .insert({
         name: name,
         email: email,
-        password: password,
-        entries: 0,
         joined: new Date()
     })
-    res.json(database.users[database.users.length-1])
+    .then(user => {
+        res.json(user[0])
+    })
+    .catch(err => res.status(4000).json('sorry unable to register'))
+    
 })
 
 app.get('/profile/:id', (req, res) => {
