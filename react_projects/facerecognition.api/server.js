@@ -3,6 +3,12 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const PORT =  process.env.PORT || 4000;
+
+const register = require('./controllers/register');
+const signin = require('./controllers/signin');
+const profile = require('./controllers/profile');
+const image = require('./controllers/image');
+
 const db = require('knex')({
     client: 'pg',
     connection: {
@@ -19,32 +25,12 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 
+// routes
 app.get('/', (req, res) => {
     res.send('Welcome to Facerecognition API')
 })
 
-app.post('/signin', (req, res) => {
-    const { email, password} = req.body;
-    if(!email || !password){
-        return res.status(400).json('incorrect form submission')
-    }
-    db.select('email', 'hash').from('login')
-        .where('email', '=', email)
-        .then(data => {
-            const isValid = bcrypt.compareSync(password, data[0].hash);
-            if(isValid){
-                return db.select('*').from('users')
-                  .where('email', '=', email)
-                  .then(user => {
-                      res.json(user[0])
-                  })
-                  .catch(err => res.status(400).json('unable to get user'))
-            } else {
-                res.status(400).json('wrong credentials')
-            }
-        })
-    .catch(err => res.status(400).json('wrong credentials'))
-})
+app.post('/signin', signin.handleSignin(db, bcrypt))
 
 app.post('/register', (req, res) => {
     const {email, name, password } = req.body;
