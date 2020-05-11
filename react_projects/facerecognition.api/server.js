@@ -34,29 +34,9 @@ app.post('/signin', signin.handleSignin(db, bcrypt))
 
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 
-app.get('/profile/:id', (req, res) => {
-    const { id } = req.params;
-    db.select('*').from('users').where({id})
-    .then(user => {
-        if (user.length){
-            res.json(user[0])
-        } else {
-            res.status(400).json('Not found')
-        }
-    })
-    .catch(err => res.status(400).json('error getting user'))
-})
+app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db)})
 
-app.put('/image', (req, res) => {
-    const { id } = req.body;
-    db('users').where('id', '=', id)
-    .increment('entries', 1)
-    .returning('entries')
-    .then(entries => {
-        res.json(entries[0]);
-    })
-    .catch(err => res.status(400).json('unable to get entries'))
-})
+app.put('/image', (req, res) => { image.handleImage(req, res, db)})
 
 app.listen(PORT, () => {
     console.log(`Face Recognition app is listening on port ${PORT}`)
