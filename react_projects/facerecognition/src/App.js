@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
 import './App.css';
 import Navigation from './components/navigation/Navigation';
 import Signin from './components/signin/Signin';
@@ -10,9 +9,7 @@ import Rank from './components/rank/Rank';
 import ImageLinkForm from './components/imagelinkform/ImageLinkForm';
 import Logo from './components/logo/Logo';
 
-const app = new Clarifai.App({
-  apiKey: 'ba2d8090585c4e208d7e59199456ddaf'
- });
+
 
 const particlesOptions = {
   particles: {
@@ -78,7 +75,14 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
 
   onButtonSubmit = () => {
     setImageUrl (input); 
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, input)
+    fetch('http://localhost:4000/imageurl', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            input: input 
+          })
+        })
+    .then(response => response.json())
     .then(response => {
       if(response){
         fetch('http://localhost:4000/image', {
@@ -88,10 +92,11 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
             id: user.user.id
           })
         })
-          .then(response => response.json())
-          .then(count => {
-            setUser(Object.assign(user, {entries: count}))
-          })
+        .then(response => response.json())
+        .then(count => {
+          setUser(Object.assign(user, {entries: count}))
+        })
+        .catch(console.log)
       }
       displayFaceBox(calculateFaceLocation(response))
     })
