@@ -9,8 +9,6 @@ import Rank from './components/rank/Rank';
 import ImageLinkForm from './components/imagelinkform/ImageLinkForm';
 import Logo from './components/logo/Logo';
 
-
-
 const particlesOptions = {
   particles: {
     number: {
@@ -23,10 +21,18 @@ const particlesOptions = {
   }
 }
 
-const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBox, onRouteChange, loadUser) => {
-  // Declaring state variables
+const App = (
+  onInputChange, 
+  onButtonSubmit, 
+  calculateFaceLocation, 
+  displayFaceBox, 
+  onRouteChange, 
+  loadUser
+  ) => {
+
+  // state variables
   const [input, setInput] = useState('');
-  const [imageurl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   const [box, setBox] = useState({});
   const [route, setRoute] = useState('signIn');
   const [isSignedIn, setisSignedIn] = useState(false);
@@ -75,7 +81,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
 
   onButtonSubmit = () => {
     setImageUrl (input); 
-    fetch('http://localhost:4000/imageurl', {
+    fetch('http://localhost:4000/imageUrl', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -111,7 +117,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
     }
     setRoute(route);
   }
-
+  
   return (
     <div className="App">
       <Particles className="particles"
@@ -122,7 +128,7 @@ const App = (onInputChange, onButtonSubmit, calculateFaceLocation, displayFaceBo
             <Logo />
             <Rank name={ user.user.name} entries={ user.user.entries }/>
             <ImageLinkForm  onInputChange= { onInputChange } onButtonSubmit={ onButtonSubmit } />
-            <FaceRecognition box={ box } imageUrl = { imageurl }/>
+            <FaceRecognition box={ box } imageUrl = { imageUrl }/>
           </div>
           : (
               route === 'signIn'
